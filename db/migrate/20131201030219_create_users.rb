@@ -1,7 +1,7 @@
-class CreateUsers < ActiveRecord::Migration
+class Createposts < ActiveRecord::Migration
   def change
-    create_table :users do |t|
-      t.string :username	
+    create_table :posts do |t|
+      t.string :username
     end
   end
 end
