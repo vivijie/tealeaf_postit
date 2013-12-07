@@ -1,6 +1,6 @@
 <% @posts.each do |post|%>
   <ul>
-  	<li><%= link_to post.title, edit_post_path(post) %></li>
+  	<li><%= link_to post.title, post_path(post) %></li>
   </ul>
 
 <% end %>

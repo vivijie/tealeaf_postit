@@ -1,5 +1,7 @@
-  <%= @post.title %>
-  <br/>
-  <%= @post.url %>
-  <br/>
-  <%= @post.description %>
+<%= @post.title %>
+<br/>
+<%= @post.url %>
+<br/>
+<%= @post.description %>
+<br/>
+<%= link_to 'Edit Post', edit_post_path(@post) %>
