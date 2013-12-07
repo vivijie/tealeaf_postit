@@ -1,7 +1,9 @@
-<%= @post.title %>
+<% @post.categories.each do |category| %>
+  <span class="badge"><%= link_to category.name, category_path(category) %></span>
+<% end %>
+
 <br/>
-<%= @post.url %>
-<br/>
+<h2><%= link_to @post.title, fix_url(@post.url) %></h2>
 <%= @post.description %>
 <br/>
 <%= link_to 'Edit Post', edit_post_path(@post) %>

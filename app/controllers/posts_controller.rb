@@ -24,7 +24,6 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
-    # binding.pry
     if @post.update(post_params)
     # if @post.update(params[:post])
       flash[:notice] = "The post updated."
@@ -42,7 +41,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :url)
+    params.require(:post).permit(:title, :url, :description, category_ids:[])
   end
 
   def set_post

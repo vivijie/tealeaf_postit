@@ -2,6 +2,8 @@
 
 <%= form_for @post do |f| %>
   <%= f.label :title %>
+  <%= f.label :thistitle %>
+  <%= f.label :title, 'this is title' %>
   <%= f.text_field :title %>
   <br/>
   <%= f.label :url %>
@@ -9,6 +11,10 @@
   <br/>
   <%= f.label :description %>
   <%= f.text_field :description %>
+  <br/>
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+    <% cb.label(class: "checkbox inline") {cb.check_box(class: "checkbox") + cb.text} %>
+  <% end %>
   <br/>
   <%= f.submit(@post.new_record? ? 'Create Post' : 'Update Post', class: 'btn btn-primary') %>
   <%= link_to "Back",  post_path(@post), class: 'btn btn-primary' %>

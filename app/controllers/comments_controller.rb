@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def create
+  	binding.pry
   	@post = Post.find(params[:post_id])
   	@comment = Comment.new(params.require(:comment).permit(:body))
   	@comment.post = @post
