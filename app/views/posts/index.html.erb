@@ -1,7 +1,16 @@
+
 <% @posts.each do |post|%>
-  <ul>
-  	<li><%= link_to post.title, post_path(post) %></li>
-  </ul>
+
+  <div class="well span8">
+  	<h4><%= link_to post.title, fix_url(post.url) %></h4>	
+  	<%= post.description %>
+  	<br/>
+    <%= link_to post.comments.size, post_path(post) %> commants
+    <br/>
+    posted by Neil at <%= post.created_at %> 
+  </div>
+
+
 
 <% end %>
 

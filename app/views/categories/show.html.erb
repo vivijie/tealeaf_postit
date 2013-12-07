@@ -1,5 +1,5 @@
 <% @category.posts.each do |post| %>
   <div class="well span8">
-  	<%= post.title %>
+  	<%= link_to post.title, post_path(post) %>
   </div>
 <% end %>
