@@ -1,19 +1,9 @@
-<% if @category.errors.any? %>
-  <h4><%= pluralize(@category.errors.count, "error") %> prohibited this
-      post from being saved:</h4>
-  <div class="alert alert-error">
-    <ul>
-      <% @category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render 'shared/errors', obj: @category %>
 
 <%= form_for @category do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br/>
-  <%= f.submit "Create category", class: 'btn btn-primary' %>
+  <%= f.submit(@category.new_record? ? 'Create Category' : 'Update Category', class: 'btn btn-primary') %>
   <%= link_to "Back",  categories_path, class: 'btn btn-primary' %>
 <% end %>
