@@ -10,6 +10,7 @@
 
 <%= form_for [@post, @comment] do |f| %>
   <%= f.label :body, "Leave a comment" %>
+  <%= render 'shared/errors', obj: @comment %>
   <%= f.text_area :body %>
   <br/>
   <%= f.submit :'Create Comment', class:"btn btn-primary" %>
