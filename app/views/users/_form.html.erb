@@ -7,5 +7,5 @@
   <%= f.label :password %>
   <%= f.password_field(:password_confirmation) %>
   <br/>
-  <%= f.submit "Create User", class: 'btn btn-primary' %>
+  <%= f.submit(@user.new_record? ? 'Create User' : 'Update User', class: 'btn btn-primary') %>
 <% end %>
