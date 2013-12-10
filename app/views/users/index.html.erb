@@ -1,0 +1,8 @@
+<h5>All User:</h5>
+
+<% @users.each do |user| %>
+  <div class="well span8">
+  	<%= user.username %>
+  	<%= link_to "Edit User", edit_user_path(user) %>
+  </div>
+<% end %>

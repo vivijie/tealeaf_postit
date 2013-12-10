@@ -7,12 +7,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-      
+    
   end
 
   def create
-  	@post = Post.new(post_params)
-
+    
+  	@post = Post.new(post_params)    
     if @post.save
       flash[:notice] = "Your post was created."
       redirect_to posts_path
@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
+    binding.pry
     if @post.update(post_params)
     # if @post.update(params[:post])
       flash[:notice] = "The post updated."

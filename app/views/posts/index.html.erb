@@ -5,7 +5,9 @@
   	<h4><%= link_to post.title, fix_url(post.url) %></h4>	
   	<%= post.description %>
   	<br/>
-    <%= link_to post.comments.size, post_path(post.id) %> commants
+    <a href="<%= post_path(post.id) %>"><%= post.comments.size %> comments
+    </a>
+
     <br/>
     posted by Neil at <%= post.created_at %> 
   </div>

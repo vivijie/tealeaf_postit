@@ -8,8 +8,10 @@
 <br/>
 <%= link_to 'Edit Post', edit_post_path(@post) %>
 
+
+
 <%= form_for [@post, @comment] do |f| %>
-  <%= f.label :body, "Leave a comment" %>
+    <%= f.label :body, "Leave a comment" %>
   <%= render 'shared/errors', obj: @comment %>
   <%= f.text_area :body %>
   <br/>
