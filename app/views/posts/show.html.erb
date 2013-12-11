@@ -6,16 +6,18 @@
 <h2><%= link_to @post.title, fix_url(@post.url) %></h2>
 <%= @post.description %>
 <br/>
-<%= link_to 'Edit Post', edit_post_path(@post) %>
+<% if logged_in? %>
+  <%= link_to 'Edit Post', edit_post_path(@post) %>
+<% end %>
 
-
-
-<%= form_for [@post, @comment] do |f| %>
-    <%= f.label :body, "Leave a comment" %>
-  <%= render 'shared/errors', obj: @comment %>
-  <%= f.text_area :body %>
-  <br/>
-  <%= f.submit :'Create Comment', class:"btn btn-primary" %>
+<% if logged_in? %>
+  <%= form_for [@post, @comment] do |f| %>
+      <%= f.label :body, "Leave a comment" %>
+    <%= render 'shared/errors', obj: @comment %>
+    <%= f.text_area :body %>
+    <br/>
+    <%= f.submit :'Create Comment', class:"btn btn-primary" %>
+  <% end %>
 <% end %>
 
 
