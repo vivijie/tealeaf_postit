@@ -12,7 +12,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    
   	@post = Post.new(post_params)    
     if @post.save
       flash[:notice] = "Your post was created."
@@ -26,7 +25,6 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
-    binding.pry
     if @post.update(post_params)
     # if @post.update(params[:post])
       flash[:notice] = "The post updated."
