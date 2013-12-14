@@ -2,7 +2,7 @@
   <%= render 'categories/category', category: category %>
 <% end %>
 <br/>
-<h2><%= link_to @post.title, fix_url(@post.url) %></h2>
+<p class="lead"><%= link_to @post.title, fix_url(@post.url) %></p>
 <%= @post.description %>
 <br/>
 
