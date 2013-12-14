@@ -1,20 +1,9 @@
+<%= render 'shared/content_title', title: "All Posts" %>
 
-<% @posts.each do |post|%>
-  <div class="well span1">
-  	<h4>Vote</h4>
-  </div>
-  <div class="well span8">
-  	<h4><%= link_to post.title, fix_url(post.url) %></h4>	
-  	<%= post.description %>
-  	<br/>
-    <%= link_to("#{post.comments.size} comments", post_path(post)) %> 
-    <br/>
-    posted by Neil at <%= post.created_at %> 
-  </div>
-
-
-
+<% @posts.each do |post| %>
+  <%= render 'post', post: post %>
 <% end %>
+
 
 
 

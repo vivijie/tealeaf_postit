@@ -8,11 +8,13 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    
+        
   end
 
   def create
-  	@post = Post.new(post_params)    
+    binding.pry
+  	@post = Post.new(post_params) 
+    @post.creator = current_user   
     if @post.save
       flash[:notice] = "Your post was created."
       redirect_to posts_path
@@ -26,7 +28,6 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-    # if @post.update(params[:post])
       flash[:notice] = "The post updated."
       redirect_to posts_path
     else

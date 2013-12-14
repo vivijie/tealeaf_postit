@@ -1,13 +1,15 @@
 <% @post.categories.each do |category| %>
-  <span class="badge"><%= link_to category.name, category_path(category) %></span>
+  <%= render 'categories/category', category: category %>
 <% end %>
-
 <br/>
 <h2><%= link_to @post.title, fix_url(@post.url) %></h2>
 <%= @post.description %>
 <br/>
+
 <% if logged_in? %>
-  <%= link_to 'Edit Post', edit_post_path(@post) %>
+  <p class='pull-right'>
+    <%= link_to 'Edit Post', edit_post_path(@post) %>
+  </p>
 <% end %>
 
 <% if logged_in? %>
@@ -23,11 +25,5 @@
 
 <h5>Comments:</h5>
 <% @post.comments.each do |comment| %>
-  <div class="well span8">
-  	<%= comment.body %>
-  	<br/>
-  	<span class='quiet'>by</span> Neil
-  	<small>at <%= comment.created_at %></small>
-  </div>
-  
+  <%= render 'comments/comment', comment: comment %>
 <% end %>

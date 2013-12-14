@@ -4,6 +4,5 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br/>
-  <%= f.submit(@category.new_record? ? 'Create Category' : 'Update Category', class: 'btn btn-primary') %>
-  <%= link_to "Back",  categories_path, class: 'btn btn-primary' %>
+  <%= f.submit(@category.new_record? ? 'Create Category' : 'Update Category', class: 'btn btn-success') %>
 <% end %>

@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :require_user, only:[:new, :create]
 
   def index
   	@categories = Category.all
@@ -10,6 +11,7 @@ class CategoriesController < ApplicationController
 
   def create
   	@category = Category.new(category_params)
+    
   	if @category.save
   	  flash[:notice] = "Category ceated!"
   	  redirect_to categories_path

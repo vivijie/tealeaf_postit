@@ -1,19 +1,21 @@
 <%= render 'shared/errors', obj: @post %>
-
-<%= form_for @post do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br/>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-  <br/>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <br/>
-  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-    <% cb.label(class: "checkbox inline") {cb.check_box(class: "checkbox") + cb.text} %>
+<div class='well'>
+  <%= form_for @post do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br/>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+    <br/>
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: "5" %>
+    <br/>
+    <%= f.label :Categories %>
+    <p>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+      <% cb.label(class: "checkbox inline") {cb.check_box(class: "checkbox") + cb.text} %>
+    <% end %>
+    </p>
+    <%= f.submit(@post.new_record? ? 'Create Post' : 'Update Post', class: 'btn btn-primary') %>
   <% end %>
-  <br/>
-  <%= f.submit(@post.new_record? ? 'Create Post' : 'Update Post', class: 'btn btn-primary') %>
-  <%= link_to "Back",  post_path(@post), class: 'btn btn-primary' %>
-<% end %>
+</div>
