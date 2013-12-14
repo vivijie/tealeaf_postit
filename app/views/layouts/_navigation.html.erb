@@ -5,9 +5,24 @@
   <li>
     <%= link_to 'All Post', posts_path %>
   </li>
+
   <li>
-  	<%= link_to 'New Post', new_post_path %>
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Categories
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+
+        <%= link_to 'New Category', new_category_path %>
+      </ul>
+    </div>
   </li>
+
+  <li>
+    <%= link_to 'New Post', new_post_path %>
+  </li>
+
 
   <% if logged_in? %>
     <li>
@@ -30,16 +45,5 @@
 
 
 
-  <li>
-    <div class="btn-group">
-  	  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-  	    Categories
-  	    <span class="caret"></span>
-  	  </a>
-  	  <ul class="dropdown-menu">
 
-  	    <%= link_to 'New Category', new_category_path %>
-  	  </ul>
-	  </div>
-  </li>
 </ul>

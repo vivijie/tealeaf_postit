@@ -1,6 +1,8 @@
 
 <% @posts.each do |post|%>
-
+  <div class="well span1">
+  	<h4>Vote</h4>
+  </div>
   <div class="well span8">
   	<h4><%= link_to post.title, fix_url(post.url) %></h4>	
   	<%= post.description %>
