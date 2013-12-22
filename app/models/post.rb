@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
 
   validates 	:title, :url, :description, presence: true
 
+
   def total_votes
   	self.up_votes - self.down_votes
   end
@@ -19,3 +20,4 @@ class Post < ActiveRecord::Base
     votes.where(vote: false).size
   end
 end
+
