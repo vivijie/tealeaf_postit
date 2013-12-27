@@ -7,10 +7,10 @@ class Category < ActiveRecord::Base
   before_save :generate_slug
 
   def to_param
-  	self.slugs
+  	self.slug
   end
   
   def generate_slug
-    self.slugs = self.name.gsub(" ", "-").downcase 
+    self.slug = self.name.gsub(" ", "-").downcase 
   end  
 end

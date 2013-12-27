@@ -41,6 +41,6 @@ class CategoriesController < ApplicationController
   end
 
   def set_category
-    @category = Category.find_by slugs: params[:id]
+    @category = Category.find_by slug: params[:id]
   end
 end
