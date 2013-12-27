@@ -4,16 +4,16 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-  	@comment = Comment.new(params.require(:comment).permit(:body))
-  	@comment.post = @post
-  	@comment.creator = current_user
+    @comment = Comment.new(params.require(:comment).permit(:body))
+    @comment.post = @post
+    @comment.creator = current_user
 
-  	if @comment.save
-  	  flash[:notice] = "Your coment was added."
-  	  redirect_to post_path(@post)
-  	else
-  	  render 'posts/show'
-  	end
+    if @comment.save
+      flash[:notice] = "Your coment was added."
+      redirect_to post_path(@post)
+    else
+      render 'posts/show'
+    end
   end
 
   def vote

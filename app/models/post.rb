@@ -22,11 +22,12 @@ class Post < ActiveRecord::Base
   end
 
   def to_param
-    self.slugs
+    self.slug
   end
 
   def generate_slug
-    self.slugs = self.title.gsub(" ", "-").downcase 
+    self.slug = self.title.gsub(" ", "-").downcase 
   end
 
 end
+

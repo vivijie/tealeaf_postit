@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20131226134346) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slugs"
+    t.string   "slug"
   end
 
   create_table "comments", force: true do |t|
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20131226134346) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "slugs"
+    t.string   "slug"
   end
 
   create_table "users", force: true do |t|
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20131226134346) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
-    t.string   "slugs"
+    t.string   "slug"
   end
 
   create_table "votes", force: true do |t|
