@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
   validates 	:title, :url, :description, presence: true
 
-  before_save :generate_slug
+  before_save :generate_slug!
 
   def total_votes
   	self.up_votes - self.down_votes
@@ -25,7 +25,7 @@ class Post < ActiveRecord::Base
     self.slug
   end
 
-  def generate_slug
+  def generate_slug!
     the_slug = to_slug(self.title)
     post = Post.find_by slug: the_slug
     count = 2
@@ -49,7 +49,7 @@ class Post < ActiveRecord::Base
     str = name.strip
     str.gsub! /\s*[^A-Za-z0-9]\s*/, '-'
     str.gsub! /-+/, "-"
-    str
+    str.downcase
   end
 
 end
