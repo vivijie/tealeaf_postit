@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'bcrypt-ruby', '~>3.0.0'
 gem 'voteable_neil', '= 0.0.0'
+gem 'sluggable_neil', '= 0.0.0'
 gem 'twilio-ruby'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
