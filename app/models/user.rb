@@ -19,4 +19,16 @@ class User < ActiveRecord::Base
   def moderator?
     self.role == 'moderator?'
   end
+
+  def two_factor_auth?
+    !self.phone.blank?
+  end
+
+  def remove_pin!
+    self.update_column(:pin, nil)
+  end
+
+  def generate_pin!
+    self.update_column(:pin, rand(10 ** 6)) # random 6 digit number
+  end
 end
