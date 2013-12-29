@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   	  if user.two_factor_auth?
         session[:two_factor] = true
         user.generate_pin!
-        # send pin to twilio, sms to user's phone
+        user.sent_pin_to_twilio
         redirect_to pin_path
       else
         normal_login(user)
