@@ -6,7 +6,7 @@
 <%= @post.description %>
 <br/>
 
-<% if logged_in? %>
+<% if logged_in? and (current_user == @post.creator || current_user.admin?) %>
   <p class='pull-right'>
     <%= link_to 'Edit Post', edit_post_path(@post) %>
   </p>
