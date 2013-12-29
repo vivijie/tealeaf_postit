@@ -21,4 +21,14 @@ class ApplicationController < ActionController::Base
   		redirect_to root_path
 	  end  	
   end
+
+  def require_admin
+    access_message unless logged_in? and current_user.admin?
+  end
+
+  def access_message
+    flash[:error] = "You can not do it."
+    redirect_to root_path
+  end
+
 end
