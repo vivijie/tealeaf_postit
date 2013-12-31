@@ -40,9 +40,10 @@ class User < ActiveRecord::Base
     client = Twilio::REST::Client.new account_sid, auth_token
     
     msg = "Hi, please input the pin to continue login: #{self.pin}"
+    phone = "+86#{self.phone}"
     client.account.messages.create({
       :from => '+16209109504', 
-      :to => '+8615680060135', 
+      :to => phone, 
       :body => msg,  
       })
   end
